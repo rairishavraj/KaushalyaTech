@@ -1,13 +1,10 @@
+'use client'
+
 import ServiceCard from '@/components/ServiceCard'
 import PortfolioCard from '@/components/PortfolioCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import { FaReact, FaNodeJs, FaMobile, FaCloud, FaFire, FaRocket } from 'react-icons/fa'
 import { SiNextdotjs, SiMongodb, SiFirebase, SiTailwindcss } from 'react-icons/si'
-
-export const metadata = {
-  title: 'KaushalyaTech - Building Digital Products for Startups & Businesses',
-  description: 'Professional web and mobile app development agency in India. We help startups and businesses build scalable digital products.',
-}
 
 export default function Home() {
   const services = [
@@ -116,136 +113,35 @@ export default function Home() {
                   View Our Work
                 </a>
               </div>
-              <div className="mt-12 flex flex-wrap gap-8 items-center">
-                <div>
-                  <p className="text-3xl font-bold gradient-text">50+</p>
-                  <p className="text-gray-600">Projects Delivered</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold gradient-text">100%</p>
-                  <p className="text-gray-600">Client Satisfaction</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold gradient-text">24/7</p>
-                  <p className="text-gray-600">Support</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">Free Consultation Includes:</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3">✓</div>
-                    Project Requirements Analysis
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3">✓</div>
-                    Technical Architecture Review
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3">✓</div>
-                    Timeline & Cost Estimation
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3">✓</div>
-                    MVP Strategy Planning
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <h2 className="text-2xl text-center text-gray-500 mb-12">Trusted by startups and established businesses</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-center">
-            {['StartupIndia', 'TechMahindra', 'AWS', 'GoogleCloud', 'Microsoft', 'Firebase'].map((logo) => (
-              <div key={logo} className="h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
-                <div className="text-gray-400 font-bold text-lg">{logo}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Overview */}
+      {/* Services */}
       <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive digital solutions tailored to your business needs
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 6).map((service, index) => (
-              <ServiceCard key={index} service={service} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <a href="/services" className="btn-primary">
-              View All Services
-            </a>
-          </div>
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} />
+          ))}
         </div>
       </section>
 
-      {/* Portfolio Highlights */}
+      {/* Portfolio */}
       <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Recent Projects</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              See how we've helped businesses achieve their digital goals
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((project, index) => (
-              <PortfolioCard key={index} project={project} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <a href="/portfolio" className="btn-secondary">
-              View Full Portfolio
-            </a>
-          </div>
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.map((project, index) => (
+            <PortfolioCard key={index} project={project} />
+          ))}
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trusted by startups and businesses across India
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} testimonial={testimonial} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Build Your Digital Product?
-          </h2>
-          <p className="text-blue-100 text-xl mb-8 max-w-2xl mx-auto">
-            Get a free consultation and project estimate within 24 hours
-          </p>
-          <a href="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all inline-block">
-            Start Your Project Today
-          </a>
-          <p className="text-blue-200 mt-4">No commitment • 30-minute call • Free estimate</p>
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} testimonial={testimonial} />
+          ))}
         </div>
       </section>
     </>
